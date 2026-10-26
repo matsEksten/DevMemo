@@ -4,4 +4,20 @@
 
 <h1>DevMemo</h1>
 
-Welcome to DevMemo
+<p>Welcome to DevMemo</p>
+
+@foreach(Card card in cards)
+{
+	<img src="@(card.IsFlipped ? card.ImagePath : "images/cards/card-back.png")"
+		class="game-card"
+		alt="Game card" 
+		@onclick="() => card.IsFlipped = true" />
+}
+
+@code {
+	private List<Card> cards = new()
+	{
+		new Card(1, 1, "images/cards/react-original.svg"),
+		new Card(2, 1, "images/cards/react-original.svg")
+	};
+}
