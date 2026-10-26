@@ -1,1 +1,6 @@
 /* CSS for GameCard component */
+.game-card {
+    width: 150px;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}

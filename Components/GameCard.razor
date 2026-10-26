@@ -1,5 +1,9 @@
-﻿<h3>GameCard</h3>
+﻿<img src="@(CardData.IsFlipped ? CardData.ImagePath : "images/cards/card-back.png")"
+	 class="game-card"
+	 alt="Game card"
+	 @onclick="() => CardData.IsFlipped = true" />
 
 @code {
 
+	[Parameter, EditorRequired] public Card CardData { get; set; } = default!;
 }

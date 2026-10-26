@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>DevMemo</PageTitle>
 
 <h1>DevMemo</h1>
 
@@ -8,10 +8,7 @@
 
 @foreach(Card card in cards)
 {
-	<img src="@(card.IsFlipped ? card.ImagePath : "images/cards/card-back.png")"
-		class="game-card"
-		alt="Game card" 
-		@onclick="() => card.IsFlipped = true" />
+	<GameCard CardData="card"/>
 }
 
 @code {
