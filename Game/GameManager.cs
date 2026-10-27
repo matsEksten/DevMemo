@@ -4,8 +4,8 @@ namespace DevMemo.Game
 {
     public class GameManager
     {
-        private Card? FirstCard { get; set; }
-        private Card? SecondCard { get; set; }
+        private Card? firstCard { get; set; }
+        private Card? secondCard { get; set; }
         public void SelectCard(Card card)
         {
             if (card.IsFlipped || card.IsMatched)
@@ -13,24 +13,28 @@ namespace DevMemo.Game
                 return;
             }
 
-            card.IsFlipped = true;
+            
 
-            if (FirstCard == null)
+            if (firstCard == null)
             {
-                FirstCard = card;
+                firstCard = card;
             }
-            else if (SecondCard == null)
+            else if (secondCard == null)
             {
-                SecondCard = card;
+                secondCard = card;
             }
             else
             {
                 return;
             }
 
-            if (FirstCard != null && SecondCard != null)
+            card.IsFlipped = true;
+
+            if (firstCard != null && secondCard != null)
             {
-                EvaluateCards(FirstCard, SecondCard);
+                EvaluateCards(firstCard, secondCard);
+                firstCard = null;
+                secondCard = null;
             }
         }
 

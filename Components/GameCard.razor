@@ -1,11 +1,18 @@
-﻿<img src="@(CardData.IsFlipped ? CardData.ImagePath : "images/cards/card-back.png")"
+﻿@* Displays the card and sends it to the parent component when clicked. *@
+<img src="@(CardData.IsFlipped ? CardData.ImagePath : "images/cards/card-back.png")"
 	 class="game-card"
 	 alt="Game card"
-	 @onclick="() => gameManager.SelectCard(CardData)" />
+	 @onclick="() => OnCardClicked.InvokeAsync(CardData)" />
 
 @code {
-
+	/// <summary>
+	/// Card to display
+	/// </summary>
 	[Parameter, EditorRequired] public Card CardData { get; set; } = default!;
-
-	private GameManager gameManager = new GameManager();
+	/// <summary>
+	/// Sends card from child to parent component
+	/// </summary>
+	[Parameter] public EventCallback<Card> OnCardClicked { get; set; }
 }
+
+

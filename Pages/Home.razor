@@ -6,15 +6,4 @@
 
 <p>Welcome to DevMemo</p>
 
-@foreach(Card card in cards)
-{
-	<GameCard CardData="card"/>
-}
-
-@code {
-	private List<Card> cards = new()
-	{
-		new Card(1, 1, "images/cards/react-original.svg"),
-		new Card(2, 1, "images/cards/react-original.svg")
-	};
-}
+<GameBoard/>
