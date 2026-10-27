@@ -1,15 +1,11 @@
-﻿@* Sends each card to GameCard component and establish click event to the gameManager instance *@
-@foreach (Card card in cards)
+﻿@* Passes each card to GameCard and connects its click event to GameManager. *@
+@foreach (Card card in cardSet.Cards)
 {
 	<GameCard CardData="card" OnCardClicked="() => gameManager.SelectCard(card)" />
 }
 
 @code {
-	private List<Card> cards = new()
-	{
-		new Card(1, 1, "images/cards/react-original.svg"),
-		new Card(2, 1, "images/cards/react-original.svg")
-	};
+	private CardSet cardSet = new CardSet();
 
 	// Shared game manager for all cards on the board.
 	private GameManager gameManager = new GameManager();

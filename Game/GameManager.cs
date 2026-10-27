@@ -4,8 +4,8 @@ namespace DevMemo.Game
 {
     public class GameManager
     {
-        private Card? firstCard { get; set; }
-        private Card? secondCard { get; set; }
+        private Card? firstCard;
+        private Card? secondCard;
         public void SelectCard(Card card)
         {
             if (card.IsFlipped || card.IsMatched)
