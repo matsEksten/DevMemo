@@ -2,8 +2,53 @@
 
 <PageTitle>DevMemo</PageTitle>
 
-<h1>DevMemo</h1>
+<div class="game-container">
+	<div class="gameboard-container">
+		<GameBoard />
+	</div>
 
-<p>Welcome to DevMemo</p>
+    @if (gameState != GameState.Playing)
+    {
+        <div class="game-overlay"></div>
+    }
 
-<GameBoard/>
+    @if (gameState == GameState.Welcome)
+    {
+        <div class="game-modal">
+            <h1>Welcome to DevMemo</h1>
+            <p>Match the icons. Master the stack.</p>
+
+            <button @onclick="StartGame">Play</button>
+        </div>
+    }
+    else if (gameState == GameState.Finished)
+    {
+        <div class="game-modal">
+            <h2>Well played!</h2>
+            <p>Your results...</p>
+
+            <button>Play Again</button>
+            <button>Quit</button>
+        </div>
+    }
+</div>
+
+
+
+
+
+@code {
+	private GameState gameState = GameState.Welcome;
+
+	private enum GameState
+	{
+		Welcome,
+		Playing,
+		Finished
+	}
+
+	private void StartGame()
+	{
+		gameState = GameState.Playing;
+	}
+}

@@ -1,8 +1,8 @@
 ﻿@* Displays the card and sends it to the parent component when clicked *@
-<img src="@(CardData.IsFlipped ? CardData.ImagePath : "images/cards/card-back.png")"
-	 class="game-card"
-	 alt="Game card"
-	 @onclick="() => OnCardClicked.InvokeAsync(CardData)" />
+<div class="game-card" @onclick="() => OnCardClicked.InvokeAsync(CardData)">
+	<img src="@(CardData.IsFlipped ? CardData.ImagePath : "images/cards/card-back.png")"
+		 alt="Game card" />
+</div>
 
 @code {
 	/// <summary>
