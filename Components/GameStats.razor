@@ -1,0 +1,20 @@
+﻿<div class="game-stats">
+    <span>Attempts: @Attempts</span>
+    <span>Pairs: @Pairs / 8</span>
+    <span>Time: 00:00</span>
+</div>
+
+@code {
+	/// <summary>
+	/// Number of completed attempts.
+	/// </summary>
+	[Parameter]
+	public int Attempts { get; set; }
+
+	/// <summary>
+	/// Number of matching pairs found.
+	/// </summary>
+	[Parameter]
+	public int Pairs { get; set; }
+
+}

@@ -1,4 +1,6 @@
-﻿@* Passes each card to GameCard and connects its click event to GameManager. *@
+﻿<GameStats Attempts="gameManager.Attempts" Pairs="gameManager.Pairs"/>
+
+@* Passes each card to GameCard and connects its click event to GameManager. *@
 @foreach (Card card in cardSet.Cards)
 {
 	<GameCard CardData="card" OnCardClicked="() => gameManager.SelectCard(card)" />

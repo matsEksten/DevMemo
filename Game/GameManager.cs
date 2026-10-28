@@ -6,6 +6,9 @@ namespace DevMemo.Game
     {
         private Card? firstCard;
         private Card? secondCard;
+        public int Attempts { get; private set; }
+        public int Pairs { get; private set; }
+
         public void SelectCard(Card card)
         {
             if (card.IsFlipped || card.IsMatched)
@@ -40,9 +43,13 @@ namespace DevMemo.Game
 
         public void EvaluateCards(Card firstCard, Card secondCard)
         {
+            Attempts++;
             if (firstCard.PairId == secondCard.PairId)
             {
-                Console.WriteLine("Match");
+                firstCard.IsMatched = true;
+                secondCard.IsMatched = true;
+
+                Pairs++;
             } else
             {
                 Console.WriteLine("No Match");

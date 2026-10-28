@@ -1,0 +1,12 @@
+/* CSS for GameStats component */
+.game-stats {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-content: space-around;
+    background-color: darkslateblue;
+    color: aliceblue;
+    padding: 1.5rem 0;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
