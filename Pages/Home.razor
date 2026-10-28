@@ -1,41 +1,44 @@
 ﻿@page "/"
 
-<PageTitle>DevMemo</PageTitle>
+<PageTitle>&lt;DevMemo/&gt;</PageTitle>
 
-<div class="game-container">
-	<div class="gameboard-container">
-		<GameBoard />
-	</div>
 
-    @if (gameState != GameState.Playing)
-    {
-        <div class="game-overlay"></div>
-    }
+<div class="page-container">
+    <div class="logo-container">
+        <img src="/images//DevMemo-logo.png" />
+    </div>
 
-    @if (gameState == GameState.Welcome)
-    {
-        <div class="game-modal">
-            <h1>Welcome to DevMemo</h1>
-            <p>Match the icons. Master the stack.</p>
-
-            <button @onclick="StartGame">Play</button>
+    <div class="game-container">
+        <div class="gameboard-container">
+            <GameBoard />
         </div>
-    }
-    else if (gameState == GameState.Finished)
-    {
-        <div class="game-modal">
-            <h2>Well played!</h2>
-            <p>Your results...</p>
 
-            <button>Play Again</button>
-            <button>Quit</button>
-        </div>
-    }
+        @if (gameState != GameState.Playing)
+        {
+            <div class="game-overlay" />
+        }
+
+        @if (gameState == GameState.Welcome)
+        {
+            <div class="game-modal">
+                <h2>Welcome to &lt;DevMemo/&gt;</h2>
+                <p>Match the icons. Master the stack.</p>
+
+                <button class="game-btn" @onclick="StartGame">Play</button>
+            </div>
+        }
+        else if (gameState == GameState.Finished)
+        {
+            <div class="game-modal">
+                <h2>Well played!</h2>
+                <p>Your results...</p>
+
+                <button>Play Again</button>
+                <button>Quit</button>
+            </div>
+        }
+    </div>
 </div>
-
-
-
-
 
 @code {
 	private GameState gameState = GameState.Welcome;

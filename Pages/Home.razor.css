@@ -1,8 +1,29 @@
 /* CSS for Home component */
-/* Main game area */
-.game-container {
+.page-container {
     position: relative;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.logo-container img {
+    display: block;
+    width: 180px;
+    transform: rotate(-12deg);
+}
+
+/* Game area */
+.game-container {
+    flex: 1;
     width: 100%;
     display: flex;
     align-items: center;
@@ -12,17 +33,73 @@
 .game-overlay {
     position: absolute;
     inset: 0;
-    Background-color: rgb(0, 0, 0, 0.02); 
+    Background-color: rgb(0, 0, 0, 0.03); 
     backdrop-filter: blur(2px);
 }
 
 .game-modal {
     position: absolute;
     width: 90%;
-    max-width: 400px;
+    max-width: 450px;
     padding: 2rem;
-    background-color: aliceblue;
-    color: black;
+    background-color: ghostwhite;
+    color: darkcyan;
+    font-size: 14px;
     border-radius: 12px;
     text-align: center;
+}
+
+.game-modal h2 {
+    margin-bottom: 0;
+}
+
+    
+
+.game-modal p {
+    font-size: 10px;
+    color: darkcyan;
+    opacity: 0.7;
+}
+
+.game-btn {
+    background-color: darkcyan;
+    padding: 6px 10px;
+    border: none;
+    color: ghostwhite;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.game-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.game-btn:active {
+    opacity: 1;
+    transform: translateY(1px);
+}
+
+/* Larger devices */
+@media (min-width: 600px) {
+    .game-modal {
+        padding: 2.5rem;
+        font-size: 18px;
+    }
+
+    .game-modal h1 {
+        font-size: 28px;
+    }
+
+    .game-modal p {
+        font-size: 14px;
+    }
+
+    .game-btn {
+        font-size: 18px;
+        padding: 10px 24px;
+    }
 }
