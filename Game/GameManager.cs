@@ -8,10 +8,11 @@ namespace DevMemo.Game
         private Card? secondCard;
         public int Attempts { get; private set; }
         public int Pairs { get; private set; }
+        public bool IsBoardLocked { get; private set; }
 
-        public void SelectCard(Card card)
+        public async Task SelectCard(Card card)
         {
-            if (card.IsFlipped || card.IsMatched)
+            if (IsBoardLocked || card.IsFlipped || card.IsMatched)
             {
                 return;
             }
@@ -35,13 +36,13 @@ namespace DevMemo.Game
 
             if (firstCard != null && secondCard != null)
             {
-                EvaluateCards(firstCard, secondCard);
+                await EvaluateCards(firstCard, secondCard);
                 firstCard = null;
                 secondCard = null;
             }
         }
 
-        public void EvaluateCards(Card firstCard, Card secondCard)
+        private async Task EvaluateCards(Card firstCard, Card secondCard)
         {
             Attempts++;
             if (firstCard.PairId == secondCard.PairId)
@@ -50,10 +51,18 @@ namespace DevMemo.Game
                 secondCard.IsMatched = true;
 
                 Pairs++;
-            } else
+            } else 
             {
-                Console.WriteLine("No Match");
+                IsBoardLocked = true;
+
+                await Task.Delay(2000);
+
+                firstCard.IsFlipped = false;
+                secondCard.IsFlipped = false;
+
+                IsBoardLocked = false;
             }
+
         }
     }
 }
