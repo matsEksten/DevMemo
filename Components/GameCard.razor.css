@@ -1,6 +1,8 @@
 /* CSS for GameCard component */
 .game-card {
-    width: 150px;
+    width: 100%;
     aspect-ratio: 1 / 1;
     cursor: pointer;
+    background-color: lightcyan;
+    border-radius: 10px;
 }

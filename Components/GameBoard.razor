@@ -1,11 +1,17 @@
-﻿@* Displays game statistics from the shared GameManager. *@
-<GameStats Attempts="gameManager.Attempts" Pairs="gameManager.Pairs"/>
+﻿<div class="gameboard-container">
+	@* Displays game statistics from the shared GameManager. *@
+	<GameStats Attempts="gameManager.Attempts" Pairs="gameManager.Pairs" />
 
-@* Passes each card to GameCard and connects its click event to GameManager. *@
-@foreach (Card card in cardSet.Cards)
-{
-	<GameCard CardData="card" OnCardClicked="() => gameManager.SelectCard(card)" />
-}
+	@* Passes each card to GameCard and connects its click event to GameManager. *@
+	<div class="gameboard-grid">
+		@foreach (Card card in cardSet.Cards)
+		{
+			<GameCard CardData="card" OnCardClicked="() => gameManager.SelectCard(card)" />
+		}
+	</div>
+</div>
+
+
 
 @code {
 	private CardSet cardSet = new CardSet();

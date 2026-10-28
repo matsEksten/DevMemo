@@ -1,0 +1,30 @@
+/* Main container for the game */
+.gameboard-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Mobile first game board */
+.gameboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    margin-top: 20px;
+}
+
+
+/* Tablet */
+@media (min-width: 768px) {
+    .gameboard-grid {
+        gap: 10px;
+    }
+}
+
+/* Laptop and desktop */
+@media (min-width: 1024px) {
+    .gameboard-grid {
+        gap: 14px;
+    }
+}
