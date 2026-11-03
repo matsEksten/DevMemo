@@ -23,7 +23,7 @@
         {
             <div class="game-modal">
                 <h2>Welcome to &lt;DevMemo/&gt;</h2>
-                <p>Match the icons. Master the stack.</p>
+                <p class="subtitle">Match the icons. Master the stack.</p>
 
                 <button class="game-btn" @onclick="StartGame">Play</button>
             </div>
@@ -31,8 +31,9 @@
         else if (gameState == GameState.Finished)
         {
             <div class="game-modal">
-                <h2>Well played!</h2>
-                <p>Your results:</p>
+                <h2>@greeting</h2>
+                <p class="result-description">You matched all 8 pairs in</p>
+                <p class="result-score">@finalAttempts attempts</p>
 
                 <button @onclick="() => PlayAgain(GameState.Playing)" class="game-btn">Play Again</button>
                 <button @onclick="() => PlayAgain(GameState.Welcome)" class="quit-btn">Quit</button>
@@ -46,6 +47,9 @@
     private GameState gameState = GameState.Welcome;
     // Used as a key to create a new GameBoard instance
     private int gameNumber = 0;
+    // Stores number of attempts to collect all pairs
+    private int finalAttempts = 0;
+    private string greeting = "";
 
     private enum GameState
     {
@@ -59,9 +63,23 @@
         gameState = GameState.Playing;
     }
 
-    private void FinishGame()
+    private void FinishGame(int attempts)
     {
+        finalAttempts = attempts;
         gameState = GameState.Finished;
+
+        if (finalAttempts <= 14)
+        {
+            greeting = "Excellent! 🏆";
+        }
+        else if (finalAttempts <= 25)
+        {
+            greeting = "Well done! 🏅";
+        }
+        else
+        {
+            greeting = "Better luck next time! 🍭";
+        }
     }
 
     // Resets the game board and switches to the selected game state

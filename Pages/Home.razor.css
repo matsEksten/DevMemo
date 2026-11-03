@@ -55,7 +55,7 @@
 
     
 
-.game-modal p {
+.subtitle {
     font-size: 10px;
     color: darkcyan;
     opacity: 0.7;
@@ -95,6 +95,19 @@
     transform: translateY(1px);
 }
 
+.result-description {
+    font-size: 16px;
+    color: darkslategray;
+    margin-bottom: 4px;
+}
+
+.result-score {
+    font-size: 26px;
+    font-weight: bold;
+    color: darkcyan;
+    margin-top: 0;
+}
+
 /* Larger devices */
 @media (min-width: 600px) {
     .logo-container img {
@@ -106,15 +119,15 @@
         font-size: 18px;
     }
 
-    .game-modal h1 {
+    .game-modal h2 {
         font-size: 28px;
     }
 
-    .game-modal p {
+    .subtitle {
         font-size: 14px;
     }
 
-    .game-btn {
+    .game-btn, .quit-btn {
         font-size: 18px;
         padding: 10px 24px;
     }

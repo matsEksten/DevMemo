@@ -20,17 +20,17 @@
 	private GameManager gameManager = new GameManager();
 
 	// Notifies Home when all pairs have been matched
-	[Parameter] public EventCallback OnGameFinished { get; set; }
+	[Parameter] public EventCallback<int> OnGameFinished { get; set; }
 	
 
-	// Handles card selection and checks if the game is finished
+	// Handles card selection and notifies Home when all pairs are matched
 	private async Task HandleCardClick(Card card)
 	{
 		await gameManager.SelectCard(card);
 
 		if (gameManager.Pairs == 8)
 		{
-			await OnGameFinished.InvokeAsync();
+			await OnGameFinished.InvokeAsync(gameManager.Attempts);
 		}
 	}
 
