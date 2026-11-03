@@ -10,7 +10,7 @@
 
     <div class="game-container">
         <div class="gameboard-container">
-            <GameBoard />
+            <GameBoard OnGameFinished="@FinishGame" />
         </div>
 
         @if (gameState != GameState.Playing)
@@ -31,27 +31,33 @@
         {
             <div class="game-modal">
                 <h2>Well played!</h2>
-                <p>Your results...</p>
+                <p>Your results:</p>
 
-                <button>Play Again</button>
-                <button>Quit</button>
+
+                <button class="game-btn">Play Again</button>
+                <button class="quit-btn">Quit</button>
             </div>
         }
     </div>
 </div>
 
 @code {
-	private GameState gameState = GameState.Welcome;
+    private GameState gameState = GameState.Welcome;
 
-	private enum GameState
-	{
-		Welcome,
-		Playing,
-		Finished
-	}
+    private enum GameState
+    {
+        Welcome,
+        Playing,
+        Finished
+    }
 
-	private void StartGame()
-	{
-		gameState = GameState.Playing;
-	}
+    private void StartGame()
+    {
+        gameState = GameState.Playing;
+    }
+
+    private void FinishGame()
+    {
+        gameState = GameState.Finished;
+    }
 }

@@ -62,7 +62,7 @@ namespace DevMemo.Game
                 // Keep the board locked while waiting before flipping the cards back
                 IsBoardLocked = true;
 
-                await Task.Delay(2000);
+                await Task.Delay(1000);
 
                 firstCard.IsFlipped = false;
                 secondCard.IsFlipped = false;

@@ -1,9 +1,9 @@
 /* CSS for Home component */
 .page-container {
-    position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
+    gap: 12px;
 }
 
 .logo-container {
@@ -23,7 +23,7 @@
 
 /* Game area */
 .game-container {
-    flex: 1;
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -73,7 +73,19 @@
     transition: 0.2s ease;
 }
 
-.game-btn:hover {
+.quit-btn {
+    background-color: darkmagenta;
+    padding: 6px 10px;
+    border: none;
+    color: ghostwhite;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.game-btn:hover, .quit-btn:hover {
     opacity: 0.85;
     transform: translateY(-1px);
 }
@@ -85,6 +97,10 @@
 
 /* Larger devices */
 @media (min-width: 600px) {
+    .logo-container img {
+        width: 250px;
+    }
+
     .game-modal {
         padding: 2.5rem;
         font-size: 18px;

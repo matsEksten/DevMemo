@@ -6,7 +6,7 @@
 	<div class="gameboard-grid">
 		@foreach (Card card in cardSet.Cards)
 		{
-			<GameCard CardData="card" OnCardClicked="() => gameManager.SelectCard(card)" />
+			<GameCard CardData="card" OnCardClicked="() => HandleCardClick(card)" />
 		}
 	</div>
 </div>
@@ -18,6 +18,19 @@
 
 	// Shared game manager for all cards on the board.
 	private GameManager gameManager = new GameManager();
+
+	[Parameter] public EventCallback OnGameFinished { get; set; }
+	
+
+	private async Task HandleCardClick(Card card)
+	{
+		await gameManager.SelectCard(card);
+
+		if (gameManager.Pairs == 8)
+		{
+			await OnGameFinished.InvokeAsync();
+		}
+	}
 }
 
 
