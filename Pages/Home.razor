@@ -10,7 +10,8 @@
 
     <div class="game-container">
         <div class="gameboard-container">
-            <GameBoard OnGameFinished="@FinishGame" />
+            @* New key creates a new GameBoard instance *@
+            <GameBoard @key="gameNumber" OnGameFinished="@FinishGame" />
         </div>
 
         @if (gameState != GameState.Playing)
@@ -33,16 +34,18 @@
                 <h2>Well played!</h2>
                 <p>Your results:</p>
 
-
-                <button class="game-btn">Play Again</button>
-                <button class="quit-btn">Quit</button>
+                <button @onclick="() => PlayAgain(GameState.Playing)" class="game-btn">Play Again</button>
+                <button @onclick="() => PlayAgain(GameState.Welcome)" class="quit-btn">Quit</button>
             </div>
         }
     </div>
 </div>
 
 @code {
+    // State controlling which view to display
     private GameState gameState = GameState.Welcome;
+    // Used as a key to create a new GameBoard instance
+    private int gameNumber = 0;
 
     private enum GameState
     {
@@ -59,5 +62,12 @@
     private void FinishGame()
     {
         gameState = GameState.Finished;
+    }
+
+    // Resets the game board and switches to the selected game state
+    private void PlayAgain(GameState nextState)
+    {
+        gameNumber++;
+        gameState = nextState;
     }
 }

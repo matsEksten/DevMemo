@@ -19,9 +19,11 @@
 	// Shared game manager for all cards on the board.
 	private GameManager gameManager = new GameManager();
 
+	// Notifies Home when all pairs have been matched
 	[Parameter] public EventCallback OnGameFinished { get; set; }
 	
 
+	// Handles card selection and checks if the game is finished
 	private async Task HandleCardClick(Card card)
 	{
 		await gameManager.SelectCard(card);
@@ -31,6 +33,7 @@
 			await OnGameFinished.InvokeAsync();
 		}
 	}
+
 }
 
 
