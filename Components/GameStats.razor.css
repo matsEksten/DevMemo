@@ -1,7 +1,7 @@
 /* CSS for GameStats component */
 .game-stats {
     display: flex;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     justify-content: space-around;
     background-color: rgba(0, 0, 139, 0.4);
