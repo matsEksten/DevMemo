@@ -27,4 +27,4 @@ Another advantage of choosing Blazor WebAssembly was the possibility of deployin
 ## Development process and reflection
 
 ## Live demo
-[Play DevMemo](https://devmemo.mx10.se/)
+https://devmemo.mx10.se/
