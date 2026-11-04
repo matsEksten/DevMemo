@@ -1,0 +1,43 @@
+/* CSS for GameCard component */
+.game-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.game-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background-color: ghostwhite;
+    transform: rotateY(-180deg);
+    padding: 3%;
+}
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+

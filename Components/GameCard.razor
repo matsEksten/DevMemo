@@ -1,0 +1,24 @@
+﻿@* Displays the card and sends it to the parent component when clicked *@
+<div class="game-card" @onclick="() => OnCardClicked.InvokeAsync(CardData)">
+	<div class="card-inner @(CardData.IsFlipped ? "flipped" : "" )">
+		<img class="card-back" src="images/cards/card-back.png"
+			 alt="Card back" />
+
+		<img class="card-front" src="@CardData.ImagePath"
+			 alt="Card front" />
+	</div>
+	
+</div>
+
+@code {
+	/// <summary>
+	/// Card to display
+	/// </summary>
+	[Parameter, EditorRequired] public Card CardData { get; set; } = default!;
+	/// <summary>
+	/// Sends card from child to parent component
+	/// </summary>
+	[Parameter] public EventCallback<Card> OnCardClicked { get; set; }
+}
+
+

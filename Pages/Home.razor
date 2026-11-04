@@ -1,7 +1,102 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>&lt;DevMemo/&gt;</PageTitle>
 
-<h1>DevMemo</h1>
 
-Welcome to DevMemo
+<div class="page-container">
+    <div class="logo-container">
+        <img src="/images//DevMemo-logo.png" />
+    </div>
+
+    <div class="game-container">
+        <div class="gameboard-container">
+            @* New key creates a new GameBoard instance *@
+            <GameBoard @key="gameNumber" OnGameFinished="@FinishGame" />
+        </div>
+
+        @if (gameState != GameState.Playing)
+        {
+            <div class="game-overlay" />
+        }
+
+        @if (gameState == GameState.Welcome)
+        {
+            <div class="game-modal">
+                <h2>Welcome to &lt;DevMemo/&gt;</h2>
+                <p class="subtitle">Match the icons. Master the stack.</p>
+
+                <button class="game-btn" @onclick="StartGame">Play</button>
+            </div>
+        }
+        else if (gameState == GameState.Finished)
+        {
+            <div class="game-modal">
+                <h2>@greeting</h2>
+                <p class="result-description">You matched all 8 pairs in</p>
+                <p class="result-score">@finalAttempts attempts</p>
+
+                <button @onclick="() => PlayAgain(GameState.Playing)" class="game-btn">Play Again</button>
+                <button @onclick="() => PlayAgain(GameState.Welcome)" class="quit-btn">Quit</button>
+            </div>
+        }
+    </div>
+
+    <footer class="footer">
+        <p>© 2026 Mats Eksten</p>
+
+        <a href="https://github.com/matsEksten/DevMemo"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="View DevMemo on GitHub">
+            <img src="/images/github.svg" alt="GitHub" />
+        </a>
+    </footer>
+</div>
+
+@code {
+    // State controlling which view to display
+    private GameState gameState = GameState.Welcome;
+    // Used as a key to create a new GameBoard instance
+    private int gameNumber = 0;
+    // Stores number of attempts to collect all pairs
+    private int finalAttempts = 0;
+    private string greeting = "";
+
+    private enum GameState
+    {
+        Welcome,
+        Playing,
+        Finished
+    }
+
+    private void StartGame()
+    {
+        gameState = GameState.Playing;
+    }
+
+    private void FinishGame(int attempts)
+    {
+        finalAttempts = attempts;
+        gameState = GameState.Finished;
+
+        if (finalAttempts <= 14)
+        {
+            greeting = "Excellent! 🏆";
+        }
+        else if (finalAttempts <= 25)
+        {
+            greeting = "Well done! 🏅";
+        }
+        else
+        {
+            greeting = "Better luck next time! 🍭";
+        }
+    }
+
+    // Resets the game board and switches to the selected game state
+    private void PlayAgain(GameState nextState)
+    {
+        gameNumber++;
+        gameState = nextState;
+    }
+}

@@ -1,0 +1,42 @@
+﻿
+
+<div class="gameboard-container">
+	@* Displays game statistics from the shared GameManager. *@
+	<GameStats Attempts="gameManager.Attempts" Pairs="gameManager.Pairs" />
+
+	@* Passes each card to GameCard and connects its click event to GameManager. *@
+	<div class="gameboard-grid">
+		@foreach (Card card in cardSet.Cards)
+		{
+			<GameCard CardData="card" OnCardClicked="() => HandleCardClick(card)" />
+		}
+	</div>
+</div>
+
+
+
+@code {
+	private CardSet cardSet = new CardSet();
+
+	// Shared game manager for all cards on the board.
+	private GameManager gameManager = new GameManager();
+
+	// Notifies Home when all pairs have been matched
+	[Parameter] public EventCallback<int> OnGameFinished { get; set; }
+	
+
+	// Handles card selection and notifies Home when all pairs are matched
+	private async Task HandleCardClick(Card card)
+	{
+		await gameManager.SelectCard(card);
+
+		if (gameManager.Pairs == 8)
+		{
+			await Task.Delay(700);
+			await OnGameFinished.InvokeAsync(gameManager.Attempts);
+		}
+	}
+
+}
+
+

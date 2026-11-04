@@ -1,0 +1,174 @@
+/* CSS for Home component */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    gap: 12px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 12px;
+    z-index: 2;
+}
+
+.logo-container img {
+    display: block;
+    width: 180px;
+    transform: rotate(-12deg);
+}
+
+/* Game area */
+.game-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-container .gameboard-container {
+    width: 100%;
+}
+
+.game-overlay {
+    position: fixed;
+    inset: 0;
+    Background-color: rgb(0, 0, 0, 0.20); 
+    backdrop-filter: blur(2px);
+}
+
+.game-modal {
+    position: absolute;
+    width: 90%;
+    max-width: 450px;
+    padding: 2rem;
+    background-color: ghostwhite;
+    color: darkcyan;
+    font-size: 14px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.game-modal h2 {
+    margin-bottom: 0;
+}
+
+    
+
+.subtitle {
+    font-size: 10px;
+    color: darkcyan;
+    opacity: 0.7;
+}
+
+.game-btn {
+    background-color: darkcyan;
+    padding: 6px 10px;
+    border: none;
+    color: ghostwhite;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.quit-btn {
+    background-color: darkmagenta;
+    padding: 6px 10px;
+    border: none;
+    color: ghostwhite;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.game-btn:hover, .quit-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.game-btn:active {
+    opacity: 1;
+    transform: translateY(1px);
+}
+
+.result-description {
+    font-size: 16px;
+    color: darkslategray;
+    margin-bottom: 4px;
+}
+
+.result-score {
+    font-size: 26px;
+    font-weight: bold;
+    color: darkcyan;
+    margin-top: 0;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 60px 0 20px 0;
+    margin-top: auto;
+    color: ghostwhite;
+    font-size: 12px;
+}
+
+.footer p {
+    margin: 0;
+    opacity: 0.8;
+    z-index: 2;
+}
+
+.footer a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.footer a:hover {
+    opacity: 1;
+}
+
+.footer img {
+    width: 34px;
+    height: 34px;
+    filter: invert(1);
+}
+
+/* Larger devices */
+@media (min-width: 600px) {
+    .logo-container img {
+        width: 250px;
+    }
+
+    .game-modal {
+        padding: 2.5rem;
+        font-size: 18px;
+    }
+
+    .game-modal h2 {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .game-btn, .quit-btn {
+        font-size: 18px;
+        padding: 10px 24px;
+    }
+}
