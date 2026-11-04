@@ -97,6 +97,7 @@ body {
     font-family: monospace;
     font-size: 12px;
     background-image: linear-gradient( to bottom right, rgba(5, 10, 25, 0.90), rgba(5, 10, 25, 0.35) ), url("/images/dm-background.webp");
+    background-size: cover;
 }
 
 
