@@ -38,6 +38,13 @@ The project is structured using C# classes and Razor components, separating the 
 This structure allows the game logic to be kept separate from most of the interface code, making the application easier to understand, maintain and further develop.
 
 ## Limitations and future improvements
+The current version of DevMemo has a fixed board size of 16 cards and the final performance evaluation is based on the number of attempts needed to complete the game.
+
+During the planning phase I considered allowing players to choose between different board sizes, representing different difficulty levels. I also considered adding a timer but decided not to include it as a requirement in the initial plan, while still keeping it in mind as a possible feature.
+
+A possible future improvement I might implement is to let players choose the size of the game board, for example 8, 16 or 24 cards.
+
+Another idea I've been considering is to make DevMemo more than just a memory game by displaying a short description of each technology or framework when a matching pair is found. The thought behind this is that it could add a small educational dimension to the game while keeping the basic gameplay unchanged.
 
 ## Development process and reflection
 
