@@ -47,6 +47,15 @@ A possible future improvement I might implement is to let players choose the siz
 Another idea I've been considering is to make DevMemo more than just a memory game by displaying a short description of each technology or framework when a matching pair is found. The thought behind this is that it could add a small educational dimension to the game while keeping the basic gameplay unchanged.
 
 ## Development process and reflection
+Instead of rushing into coding I decided to set aside time to get familiar with Blazor, mainly through a tutorial. This helped me better understand the framework, its component structure and how C# can be used to handle the game logic and user interactions.
+
+During the planning phase I created a flowchart and pseudocode to describe the game logic. I found the flowchart especially useful for identifying potential edge cases at an early stage. Considering these situations during implementation made the process easier and helped me avoid unnecessary complications later in development.
+
+Another important part of the project was finding a reasonable balance between the time available and the complexity of the application. I wanted to create something challenging enough to further develop my C# and OOP skills, but also realistic enough to complete within the assignment deadline. I therefore prioritized the main functionality rather than committing to additional features that I might not have time to finish.
+
+Working with Blazor has been an interesting and valuable experience as it allowed me to combine my previous knowledge of HTML and CSS with the C# skills I'm continuing to develop. It has introduced me to another approach to building interactive web applications, where C# can be used instead of JavaScript for the application logic.
+
+This project has given me more experience in planning and managing the development process. It has also been a reminder of the importance of allowing enough time for the different stages of a project. Besides implementation, time is needed for testing, fixing unexpected issues, deployment and documentation, rather than leaving these tasks until the final days before a deadline.
 
 ## Live demo
 https://devmemo.mx10.se/
