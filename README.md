@@ -20,7 +20,7 @@ To prevent invalid selections, the game board is temporarily locked while unmatc
 Once all eight pairs have been found, a results modal appears, showing the total number of attempts along with performance feedback based on the player's result. The player can then choose to start a new game or return to the start screen. The interface is designed to be responsive and playable on different screen sizes.
 
 ## Technologies and Project Structure
-DevMemo is built using C#, .NET 10 and Blazor WebAssembly. C# handles the game logic built using object-oriented programming (OOP), while HTML and CSS are used to build and style the user interface.
+DevMemo is built using C#, .NET 10 and Blazor WebAssembly. C# handles the game logic using object-oriented programming (OOP) principles, while HTML and CSS are used to build and style the user interface.
 
 The project is structured using C# classes and Razor components, separating the game logic from the user interface. Razor components combine HTML markup with C# code to handle rendering and user interactions.
 
